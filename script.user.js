@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Automated Ad-Link Bypasser
-// @namespace    https://github.com
-// @version      3.1
-// @description  Automatically bypasses ad-shortener gates using an API backend.
+// @name         Automated Ad-Link Bypasser 2
+// @namespace    https://github.com/
+// @version      3.2
+// @description  Automatically bypasses ad-shortener gates using a live API backend.
 // @match        *://*://*
 // @match        *://*.linkvertise.net/*
 // @match        *://*.lootlabs.gg/*
@@ -21,14 +21,14 @@
     document.documentElement.innerHTML = `
         <div style="background:#111; color:#fff; font-family:sans-serif; text-align:center; padding-top:100px; height:100vh;">
             <h1 style="color:#00ff00;">Bypassing Ad Gate...</h1>
-            <p>Please wait while the secure API retrieves your target destination.</p>
+            <p>Please wait while the active API retrieves your target destination.</p>
         </div>
     `;
 
-    // Forward the link to the public, open-source bypass engine API
+    // Forward the link to the active public bypass engine API
     GM_xmlhttpRequest({
         method: "GET",
-        url: `https://bypass.vip{encodeURIComponent(currentUrl)}`,
+        url: `https://bypass.city{encodeURIComponent(currentUrl)}`,
         onload: function(response) {
             try {
                 const data = JSON.parse(response.responseText);
